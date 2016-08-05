@@ -1,6 +1,8 @@
-<h1> Categories</h1>
-<% @categories.each do |category| %>
-<h3><%= category.name %></h3>
-<hr>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Categories</h1>
+<ul>
+<% @categories.sort.each do |category| %>
+<li>	<%= link_to category.name, category_path(:id => category.id) %></li>
 <% end %>
-<%= link_to "Add New Category", new_category_path %>
+</ul>
