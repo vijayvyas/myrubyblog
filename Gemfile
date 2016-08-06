@@ -10,7 +10,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'active_admin_editor'
 gem 'font-awesome-rails'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'autoprefixer-rails'
 
 # Use SCSS for stylesheets
