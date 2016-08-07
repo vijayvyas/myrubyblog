@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160807102625) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "ar_internal_metadata1", primary_key: "key", id: :string, force: :cascade do |t|
+  create_table "ar_internal_metadata", primary_key: "key", id: :string, force: :cascade do |t|
     t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,19 +57,7 @@ ActiveRecord::Schema.define(version: 20160807102625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "categories1", id: :integer, default: -> { "nextval('categories_id_seq1'::regclass)" }, force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories2", id: :integer, default: -> { "nextval('categories_id_seq'::regclass)" }, force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -79,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160807102625) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "schema_migrations1", id: false, force: :cascade do |t|
+  create_table "schema_migrations", id: false, force: :cascade do |t|
     t.string "version", null: false
     t.index ["version"], name: "unique_schema_migrations", unique: true, using: :btree
   end
