@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807102625) do
+ActiveRecord::Schema.define(version: 20160807215605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,18 +46,18 @@ ActiveRecord::Schema.define(version: 20160807102625) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "ar_internal_metadata", primary_key: "key", id: :string, force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", id: :integer, default: -> { "nextval('categories_id_seq2'::regclass)" }, force: :cascade do |t|
+  create_table "categories", id: :integer, default: -> { "nextval('categories_id_seq1'::regclass)" }, force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
+  create_table "categories2", id: :integer, default: -> { "nextval('categories_id_seq'::regclass)" }, force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -67,9 +67,13 @@ ActiveRecord::Schema.define(version: 20160807102625) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "schema_migrations", id: false, force: :cascade do |t|
-    t.string "version", null: false
-    t.index ["version"], name: "unique_schema_migrations", unique: true, using: :btree
+  create_table "posts2", id: :integer, default: -> { "nextval('posts_id_seq1'::regclass)" }, force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "category_id"
+    t.integer  "author_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
