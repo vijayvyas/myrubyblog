@@ -1,0 +1,39 @@
+<div id="sidebar">
+					<ul>
+						<li>
+							<div id="search" >
+								<%= search_form_for @q do |f| %>
+								<%= f.text_field :title_or_body_cont %>
+								<%= f.submit "Search" %>
+								<% end %>
+							</div>
+							<div style="clear: both;">&nbsp;</div>
+						</li>
+						<li>
+							<h2>文章目錄</h2>
+							<ul>
+								<%  all_categories.each do |cat| %>
+									<li><%= link_to cat.name, category_path(:id => cat.id) %></li>
+
+								<% end %>
+							</ul>
+						</li>
+						<li>
+							<h2>文章列表</h2>
+							<ul>
+								<%  all_posts.each do |post| %>
+									<li><%= link_to post.title, post_path(:id => post.id) %></li>
+
+								<% end %>
+							</ul>
+						</li>
+						<li>
+							<h2>發表文章</h2>
+							<ul>
+								<li><%= link_to '(*)登入部落格', admin_root_path %></li>
+								<li><%= link_to '直接發表文章', new_post_path %></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- end #sidebar -->

@@ -1,0 +1,42 @@
+<%= form_for(network) do |f| %>
+  <% if network.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(network.errors.count, "error") %> prohibited this network from being saved:</h2>
+
+      <ul>
+      <% network.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pwd %>
+    <%= f.password_field :pwd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ssid %>
+    <%= f.text_field :ssid %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

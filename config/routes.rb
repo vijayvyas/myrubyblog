@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :networks
+  resources :network_apis
+  get 'comments/edit'
+
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'comments/show'
+
+  get 'pages/about'
+
+  get 'pages/contact'
+
+  get 'pages/resources'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'categories/index'
