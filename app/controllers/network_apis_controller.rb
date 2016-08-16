@@ -12,6 +12,12 @@ class NetworkApisController < ApplicationController
   def show
     render json: @network
   end
+  def showselected
+	@ssid = params["ssid"]
+	puts "SSID : "+ @ssid
+	@network = Network.find_by ssid: @ssid
+    render json: @network
+  end
 
   # POST /networks
   def create
@@ -25,18 +31,18 @@ class NetworkApisController < ApplicationController
   end
 
   # PATCH/PUT /networks/1
-  def update
-    if @network.update(network_params)
-      render json: @network
-    else
-      render json: @network.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+    # if @network.update(network_params)
+      # render json: @network
+    # else
+      # render json: @network.errors, status: :unprocessable_entity
+    # end
+  # end
 
   # DELETE /networks/1
-  def destroy
-    @network.destroy
-  end
+  # def destroy
+    # @network.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

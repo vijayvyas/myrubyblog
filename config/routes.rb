@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :networks
   resources :network_apis
   get 'comments/edit'
+  
+  get "network_api/showselected(/:ssid)" => "network_apis#showselected"
 
   get 'comments/index'
 
